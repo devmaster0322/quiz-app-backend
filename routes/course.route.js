@@ -5,7 +5,7 @@ const middleware = require("./../middlewares/auth.moddleware");
 
 router.get('/', function (req, res) {
     res.status(200).json({
-        message: "This is API for course"
+        message: "APIs for Course"
     })
 });
 

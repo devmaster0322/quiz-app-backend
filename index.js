@@ -8,8 +8,12 @@ const cookieParser = require("cookie-parser");
 const app = express();
 require('dotenv').config()
 const middleware = require("./middlewares/auth.moddleware");
+
 const userRoute = require("./routes/user.route")
 const courseRoute = require("./routes/course.route")
+const examRoute = require("./routes/exam.route")
+const historyRoute = require("./routes/history.route")
+const chatRoute = require("./routes/chat.route")
 
 // Connect to MongoDB
 mongoose
@@ -39,7 +43,10 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", userRoute);
 app.use("/api/course", [middleware.checkAuth], courseRoute);
+app.use("/api/exam", [middleware.checkAuth], examRoute);
+app.use("/api/history", [middleware.checkAuth], historyRoute);
+app.use("/api/chat", [middleware.checkAuth], chatRoute);
 
-if(app.listen(process.env.APP_PORT)) {
+if (app.listen(process.env.APP_PORT)) {
     console.log(`Starting server on port ${process.env.APP_PORT}`);
 }
