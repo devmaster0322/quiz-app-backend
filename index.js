@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const compression = require('compression');
 const morgan = require('morgan');
 
-const fs = require('fs');
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
 const app = express();

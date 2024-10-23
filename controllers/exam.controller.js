@@ -24,7 +24,8 @@ exports.readAction = async (req, res) => {
 
 exports.saveAction = async (req, res) => {
     try {
-
+        console.log(req.body);
+        res.send("ok")
     } catch (e) {
         res.status(400).json({
             status: "error",
