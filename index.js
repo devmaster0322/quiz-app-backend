@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const compression = require('compression');
+const morgan = require('morgan');
+
 const fs = require('fs');
 const cors = require('cors');
 const cookieParser = require("cookie-parser");
@@ -22,6 +24,7 @@ mongoose
     .catch((err) => console.log(err));
 
 app.use(cookieParser());
+app.use(morgan('tiny'));
 
 app.use(cors({
     origin: '*',
